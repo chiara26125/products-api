@@ -11,9 +11,7 @@ public class Product {
         this.price = price;
     }
 
-    public Product() {
-
-    }
+    public Product() {}
 
     public Long getId() {
         return id;
