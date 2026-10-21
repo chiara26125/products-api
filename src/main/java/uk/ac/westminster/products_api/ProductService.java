@@ -36,4 +36,18 @@ public class ProductService {
                 .filter(p -> p.getName().contains(name))
                 .toList();
     }
+
+    public ProductService() {
+        products.add(new DigitalProduct(
+                nextId++, "Clean code (E-book)", 29.99,
+                "/downloads/clean-code.pdf", 4.2));
+
+        products.add(new PhysicalProduct(
+                nextId++, "27-inch Monitor", 899.99,
+                5.4 ,"70cm x 40cm x 18cm"));
+    }
+
+    /* the id, name, price variables and its getters were declared within Product
+    class, hence they were imported to the subclasses through the
+    parent class (Product) */
 }
