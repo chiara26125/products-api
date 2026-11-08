@@ -9,6 +9,7 @@ import java.util.Optional;
 @Service
 public class ProductService {
     private List<Product> products = new ArrayList<>();
+    private List<String> summaries = new ArrayList<>();
     private Long nextId = 1L;
 
     public List<Product> getAllProducts(){
@@ -50,4 +51,14 @@ public class ProductService {
     /* the id, name, price variables and its getters were declared within Product
     class, hence they were imported to the subclasses through the
     parent class (Product) */
+
+    public List<String> getAllSummaries() {
+        for (Product p : products) {
+            summaries.add(p.getSummary());
+            if (p instanceof Discountable d) {
+                d.applyDiscount(1.10);
+            }
+        }
+        return summaries;
+    }
 }
